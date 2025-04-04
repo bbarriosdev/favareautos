@@ -19,7 +19,7 @@ export default function Hero() {
     {
       title: "Financiamiento a tu medida",
       description: "Opciones flexibles adaptadas a tus necesidades y posibilidades",
-      image: "/favareautos/manejo.jpg?height=500&width=1920&text=Slide+3",
+      image: "/favareautos/punte.jpg?height=500&width=1920&text=Slide+3",
     },
   ]
 
