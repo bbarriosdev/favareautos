@@ -8,14 +8,13 @@ export default function FeaturedVehicles({ navigateTo }) {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef(null)
 
-  // Sample vehicle data - in a real app, this would come from an API or props
   const vehicles = [
     {
       id: 1,
       name: "Volkswagen Golf",
       year: "2021",
       price: "$19,800",
-      image: "/gold.jpg?height=200&width=300",
+      image: "/favareautos/gold.jpg?height=200&width=300",
       fuelType: "Gasolina",
       mileage: "25,000 km",
       condition: "Usado",

@@ -9,7 +9,7 @@ export default function Hero() {
     {
       title: "Encuentra tu vehículo ideal en FAVEREAUTOS",
       description: "Ofrecemos la mejor selección de vehículos nuevos y usados con financiamiento a tu medida",
-      image: "/placeholder.svg?height=500&width=1920",
+      image: "/porche.jpg?height=500&width=1920",
     },
     {
       title: "Invierte en calidad y confianza",
