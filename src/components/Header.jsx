@@ -19,7 +19,7 @@ export default function Header({ navigateTo, currentPage }) {
             onClick={() => navigateTo("home")}
             className={`text-gray-800 hover:text-blue-600 font-medium ${currentPage === "home" ? "text-blue-600" : ""}`}
           >
-            Inicio
+            Inicios
           </button>
           <button
             onClick={() => navigateTo("vehicles")}
