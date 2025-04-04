@@ -29,10 +29,10 @@ export default function VehicleDetail({ vehicle, navigateBack }) {
   // Generar imágenes adicionales para la galería (en una app real vendrían del backend)
   const images = [
     vehicle.image,
-    `/ford.jpg?height=400&width=600&text=Interior+${vehicle.name}`,
-    `/ford.jpg?height=400&width=600&text=Lateral+${vehicle.name}`,
-    `/ford.jpg?height=400&width=600&text=Trasera+${vehicle.name}`,
-    `/ford.jpg?height=400&width=600&text=Motor+${vehicle.name}`,
+    `/favareautos/ford.jpg?height=400&width=600&text=Interior+${vehicle.name}`,
+    `/favareautos/ford.jpg?height=400&width=600&text=Lateral+${vehicle.name}`,
+    `/favareautos/ford.jpg?height=400&width=600&text=Trasera+${vehicle.name}`,
+    `/favareautos/ford.jpg?height=400&width=600&text=Motor+${vehicle.name}`,
   ]
 
   // Extraer marca y modelo del nombre del vehículo
