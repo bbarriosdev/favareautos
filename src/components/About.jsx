@@ -227,7 +227,7 @@ export default function About() {
               }`}
             >
               <div className="flex justify-center mb-8">
-                <img src="/logo.jpeg" alt="FAVEREAUTOS Automotora" className="h-24 w-auto" />
+                <img src="/favareautos/logo.jpeg" alt="FAVEREAUTOS Automotora" className="h-24 w-auto" />
               </div>
 
               <p className="text-gray-700 mb-6 text-lg">
