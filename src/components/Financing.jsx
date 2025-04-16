@@ -18,8 +18,8 @@ export default function Financing() {
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-blue-800">Financiamiento</h2>
             <div className="w-24 h-1 bg-yellow-400 mb-6"></div>
             <p className="text-gray-700 text-center max-w-2xl mx-auto font-semibold">
-              En FAVEREAUTOS te ofrecemos las mejores opciones de financiamiento para que puedas adquirir el vehículo de
-              tus sueños
+              En FAVEREAUTOS estamos comprometidos con la innovación y la satisfacción del cliente proporcionando
+              soluciones financieras accesibles y eficientes para la adquisición de vehículos.
             </p>
           </div>
         </div>
@@ -50,6 +50,12 @@ export default function Financing() {
                     crédito directo, Favereautos tiene la capacidad de establecer sus propios términos y condiciones, lo
                     que puede resultar en mayor flexibilidad para adaptarse a las necesidades financieras de sus
                     clientes.
+                  </li>
+                  <li>
+                    <span className="font-medium">Control sobre la experiencia del cliente:</span> Al manejar el proceso
+                    de financiamiento internamente, tenemos un mayor control sobre la experiencia del cliente en
+                    general. Esto puede ayudar a garantizar un servicio consistente y de alta calidad en todas las
+                    etapas del proceso de compra.
                   </li>
                 </ul>
               </div>
@@ -143,7 +149,7 @@ export default function Financing() {
                 <div className="space-y-3">
                   {[
                     "Solo residentes de la Quinta región.",
-                    "50% pie valor vehículo",
+                    "Pie de 50% o 40% del valor vehículo",
                     "Aval referencial familiar directo.",
                     "Acreditar renta acorde al pago de cuota.",
                     "Comprobante de domicilio.",
@@ -187,6 +193,9 @@ export default function Financing() {
                 </ul>
 
                 <div className="mt-6">
+                  <p className="text-gray-700 mb-4 text-sm">
+                    Consulta por las opciones que tenemos para Crédito Directo, todos los casos serán evaluados.
+                  </p>
                   <Button className="w-full bg-blue-600 hover:bg-blue-700">Solicitar Crédito Directo</Button>
                 </div>
               </div>
@@ -276,4 +285,3 @@ export default function Financing() {
     </section>
   )
 }
-

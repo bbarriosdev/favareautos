@@ -3,11 +3,9 @@ import { useState, useEffect, useRef } from "react"
 import {
   Car,
   CreditCard,
-  Wrench,
   Check,
   ArrowRight,
   Award,
-  Clock,
   Shield,
   Star,
   Users,
@@ -67,16 +65,11 @@ export default function About() {
   const services = [
     {
       icon: <Car className="h-8 w-8" />,
-      title: "Compra y Venta",
+      title: "Compra y Venta Comercial",
       description:
         "Adquiere el auto de tus sueños o vende el tuyo con las mejores condiciones del mercado. Nuestro equipo de asesores te guiará en todo el proceso.",
-      features: [
-        "Amplio inventario de vehículos nacionales e importados",
-        "Tasación gratuita y justa de tu auto actual",
-        "Trámites de transferencia y documentación incluidos",
-        "Garantía de satisfacción con devolución asegurada",
-      ],
-      highlight: "Más de 500 vehículos disponibles",
+      features: [],
+      highlight: "Más de 50 vehículos disponibles",
       iconBg: "bg-blue-100",
       iconColor: "text-blue-600",
       hoverIconBg: "group-hover:bg-blue-200",
@@ -86,50 +79,22 @@ export default function About() {
       title: "Financiamiento",
       description:
         "Opciones de financiamiento flexibles adaptadas a tus necesidades y posibilidades. Trabajamos con múltiples entidades financieras para ofrecerte la mejor tasa.",
-      features: [
-        "Tasas preferenciales desde 0.79% mensual",
-        "Aprobación rápida en menos de 24 horas",
-        "Sin entrada en modelos seleccionados",
-        "Plazos de hasta 72 meses con cuotas accesibles",
-      ],
+      features: [],
       highlight: "Financiamos hasta el 100% del valor",
       iconBg: "bg-yellow-100",
       iconColor: "text-yellow-600",
       hoverIconBg: "group-hover:bg-yellow-200",
     },
     {
-      icon: <Wrench className="h-8 w-8" />,
-      title: "Servicio Técnico",
+      icon: <Users className="h-8 w-8" />,
+      title: "Asesoría Comercial",
       description:
-        "Mantenimiento y reparación con técnicos especializados y repuestos originales. Contamos con la última tecnología en diagnóstico automotriz.",
-      features: [
-        "Diagnóstico computarizado con equipos de última generación",
-        "Mantenimiento preventivo con planes personalizados",
-        "Reparaciones garantizadas por escrito",
-        "Servicio de grúa incluido las 24 horas",
-      ],
-      highlight: "Técnicos certificados por las marcas",
+        "Ofrecemos orientación experta y personalizada para ayudar a personas y pequeños empresarios a tomar decisiones informadas sobre la gestión de sus recursos económicos.",
+      features: [],
+      highlight: "Optimizamos las finanzas de nuestros clientes",
       iconBg: "bg-green-100",
       iconColor: "text-green-600",
       hoverIconBg: "group-hover:bg-green-200",
-    },
-  ]
-
-  const benefits = [
-    {
-      icon: <Shield className="h-5 w-5" />,
-      title: "Garantía Extendida",
-      description: "Todos nuestros vehículos incluyen garantía extendida opcional",
-    },
-    {
-      icon: <Award className="h-5 w-5" />,
-      title: "Calidad Certificada",
-      description: "Rigurosa inspección de 150 puntos en todos nuestros vehículos",
-    },
-    {
-      icon: <Clock className="h-5 w-5" />,
-      title: "Atención Personalizada",
-      description: "Asesores dedicados para acompañarte en todo el proceso",
     },
   ]
 
@@ -213,14 +178,13 @@ export default function About() {
                       </div>
 
                       <div className="space-y-2 mb-6">
-                        {service.features.map((feature, idx) => (
-                          <div key={idx} className="flex items-start">
-                            <div className="bg-gray-100 p-1 rounded-full mr-2 mt-0.5 group-hover:bg-blue-100 transition-colors">
-                              <Check className="h-3 w-3 text-gray-600 group-hover:text-blue-600 transition-colors" />
-                            </div>
-                            <span className="text-sm text-gray-600">{feature}</span>
-                          </div>
-                        ))}
+                        <ul className="list-disc pl-5 space-y-1">
+                          {service.features.map((feature, idx) => (
+                            <li key={idx} className="text-sm text-gray-600">
+                              {feature}
+                            </li>
+                          ))}
+                        </ul>
                       </div>
 
                       <a
@@ -232,27 +196,6 @@ export default function About() {
                       </a>
                     </CardContent>
                   </Card>
-                </div>
-              ))}
-            </div>
-
-            <div
-              className={`mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 transition-all duration-1000 delay-700 transform ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-              }`}
-            >
-              {benefits.map((benefit, index) => (
-                <div
-                  key={index}
-                  className="flex items-start p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300"
-                >
-                  <div className="bg-blue-100 p-2 rounded-full mr-3">
-                    <div className="text-blue-600">{benefit.icon}</div>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900 mb-1">{benefit.title}</h4>
-                    <p className="text-sm text-gray-600">{benefit.description}</p>
-                  </div>
                 </div>
               ))}
             </div>
@@ -284,28 +227,31 @@ export default function About() {
               }`}
             >
               <div className="flex justify-center mb-8">
-                <img src="/favareautos/logo.jpeg" alt="FAVEREAUTOS Automotora" className="h-24 w-auto" />
+                <img src="/logo.jpeg" alt="FAVEREAUTOS Automotora" className="h-24 w-auto" />
               </div>
 
               <p className="text-gray-700 mb-6 text-lg">
-                Con más de 15 años de experiencia en el mercado automotriz, FAVEREAUTOS se ha consolidado como una de
-                las automotoras más confiables del país. Ofrecemos una amplia gama de vehículos nuevos y usados de las
-                mejores marcas, con garantía y financiamiento a tu medida.
+                Tenemos el compromiso pleno de brindarte la mejor experiencia en la compra y venta de automóviles,
+                acompañándote en cada paso, desde la decisión hasta la transacción final.
               </p>
-              <p className="text-gray-700 mb-8 text-lg">
-                Nuestro compromiso es brindarte la mejor experiencia de compra, con asesoramiento personalizado y un
-                servicio postventa de calidad. En FAVEREAUTOS encontrarás el vehículo que se adapta a tus necesidades y
-                presupuesto.
+              <p className="text-gray-700 mb-6 text-lg">
+                Gracias a un esfuerzo constante por mejorar, estamos seguros de que tu sueño de adquirir un nuevo
+                automóvil estará en las mejores manos. Queremos ser tu aliado automotriz de por vida y estamos
+                sinceramente comprometidos con ese objetivo.
+              </p>
+              <p className="text-gray-700 mb-4 text-lg">
+                Te invitamos a unirte a nosotros en la transformación del proceso de compra y venta de automóviles en
+                nuestra región. Tu opinión y experiencia son fundamentales para nuestro crecimiento y evolución.
               </p>
 
               <div className="flex flex-wrap gap-4 mb-8">
                 <div className="flex items-center bg-blue-50 px-4 py-2 rounded-full">
                   <ThumbsUp className="h-5 w-5 text-blue-600 mr-2" />
-                  <span className="text-blue-800 font-medium">Más de 5,000 clientes satisfechos</span>
+                  <span className="text-blue-800 font-medium">¡Gracias por confiar en nosotros!</span>
                 </div>
                 <div className="flex items-center bg-yellow-50 px-4 py-2 rounded-full">
                   <Trophy className="h-5 w-5 text-yellow-600 mr-2" />
-                  <span className="text-yellow-800 font-medium">Premio al Mejor Servicio 2024</span>
+                  <span className="text-yellow-800 font-medium">Soluciones automotrices</span>
                 </div>
               </div>
             </div>
@@ -328,21 +274,66 @@ export default function About() {
               isAboutVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            <h3 className="text-2xl font-bold text-center mb-8 text-blue-800">¿Por qué elegirnos?</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {trustIcons.map((item, index) => (
-                <div
-                  key={index}
-                  className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 text-center hover:-translate-y-1"
-                  style={{ transitionDelay: `${800 + index * 100}ms` }}
-                >
-                  <div className="bg-blue-100 p-4 rounded-full inline-flex justify-center items-center mb-4 text-blue-600">
-                    {item.icon}
+            <div className="bg-white rounded-xl shadow-md p-8 border border-gray-100">
+              <h3 className="text-2xl font-bold text-center mb-8 text-blue-800">Nuestros Valores</h3>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+                {[
+                  {
+                    icon: <Shield className="h-10 w-10" />,
+                    title: "Orientación al cliente",
+                    description: "Nos enfocamos en entender y satisfacer las necesidades de cada cliente",
+                  },
+                  {
+                    icon: <Star className="h-10 w-10" />,
+                    title: "Responsabilidad",
+                    description: "Cumplimos con nuestros compromisos y asumimos las consecuencias de nuestras acciones",
+                  },
+                  {
+                    icon: <Users className="h-10 w-10" />,
+                    title: "Compromiso",
+                    description: "Nos dedicamos completamente a ofrecer el mejor servicio posible",
+                  },
+                  {
+                    icon: <Award className="h-10 w-10" />,
+                    title: "Excelencia",
+                    description: "Buscamos constantemente superar las expectativas y mejorar nuestros procesos",
+                  },
+                ].map((item, index) => (
+                  <div
+                    key={index}
+                    className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 text-center hover:-translate-y-1 border border-gray-50"
+                    style={{ transitionDelay: `${800 + index * 100}ms` }}
+                  >
+                    <div className="bg-blue-100 p-4 rounded-full inline-flex justify-center items-center mb-4 text-blue-600">
+                      {item.icon}
+                    </div>
+                    <h4 className="font-bold text-lg mb-2">{item.title}</h4>
+                    <p className="text-gray-600 text-sm">{item.description}</p>
                   </div>
-                  <h4 className="font-bold text-lg mb-2">{item.title}</h4>
-                  <p className="text-gray-600 text-sm">{item.description}</p>
+                ))}
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div className="bg-blue-50 p-6 rounded-lg">
+                  <h4 className="font-bold text-xl mb-4 text-blue-800">Nuestro Compromiso</h4>
+                  <p className="text-gray-700">
+                    En Favereautos tenemos un compromiso continuo con la excelencia y la satisfacción del cliente.
+                    Buscamos superar sus expectativas, construyendo relaciones sólidas y duraderas, al ir más allá de lo
+                    esperado, no solo generamos experiencias positivas, sino que también se fomenta la lealtad del
+                    cliente y crecimiento positivo.
+                  </p>
                 </div>
-              ))}
+
+                <div className="bg-yellow-50 p-6 rounded-lg">
+                  <h4 className="font-bold text-xl mb-4 text-yellow-800">Nuestra Visión</h4>
+                  <p className="text-gray-700">
+                    El objetivo de Favereautos es convertirse en la organización líder en ofrecer la mejor experiencia
+                    en el mercado automotriz, enfocados en la experiencia del cliente, la innovación y la mejora
+                    continua, trabajamos para alcanzar nuestro objetivo.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -350,4 +341,3 @@ export default function About() {
     </>
   )
 }
-

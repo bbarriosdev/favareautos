@@ -29,10 +29,10 @@ export default function VehicleDetail({ vehicle, navigateBack }) {
   // Generar imágenes adicionales para la galería (en una app real vendrían del backend)
   const images = [
     vehicle.image,
-    `/favareautos/ford.jpg?height=400&width=600&text=Interior+${vehicle.name}`,
-    `/favareautos/ford.jpg?height=400&width=600&text=Lateral+${vehicle.name}`,
-    `/favareautos/ford.jpg?height=400&width=600&text=Trasera+${vehicle.name}`,
-    `/favareautos/ford.jpg?height=400&width=600&text=Motor+${vehicle.name}`,
+    `/placeholder.svg?height=400&width=600&text=Interior+${vehicle.name}`,
+    `/placeholder.svg?height=400&width=600&text=Lateral+${vehicle.name}`,
+    `/placeholder.svg?height=400&width=600&text=Trasera+${vehicle.name}`,
+    `/placeholder.svg?height=400&width=600&text=Motor+${vehicle.name}`,
   ]
 
   // Extraer marca y modelo del nombre del vehículo
@@ -146,30 +146,12 @@ Saludos cordiales,
             </div>
 
             {/* Tabs de información */}
-            <Tabs defaultValue="descripcion" className="w-full">
-              <TabsList className="grid grid-cols-4 mb-6">
-                <TabsTrigger value="descripcion">Descripción</TabsTrigger>
+            <Tabs defaultValue="especificaciones" className="w-full">
+              <TabsList className="grid grid-cols-3 mb-6">
                 <TabsTrigger value="especificaciones">Especificaciones</TabsTrigger>
                 <TabsTrigger value="caracteristicas">Características</TabsTrigger>
                 <TabsTrigger value="financiamiento">Financiamiento</TabsTrigger>
               </TabsList>
-
-              <TabsContent value="descripcion">
-                <div className="bg-white rounded-lg p-6 border">
-                  <h2 className="text-xl font-bold mb-4">Descripción</h2>
-                  <p className="text-gray-700 mb-4">
-                    Este {vehicle.name} {vehicle.year} se encuentra en excelentes condiciones. Con un motor{" "}
-                    {vehicle.engine} y transmisión {vehicle.transmission.toLowerCase()}, ofrece un rendimiento
-                    excepcional y una conducción suave. El vehículo tiene {formattedMileage} recorridos y ha pasado por
-                    rigurosas inspecciones para garantizar su calidad.
-                  </p>
-                  <p className="text-gray-700">
-                    El interior {vehicle.color.toLowerCase()} está bien mantenido y cuenta con numerosas características
-                    como {vehicle.features.join(", ")}. Este {vehicle.bodyType} es perfecto para quienes buscan estilo,
-                    confort y rendimiento en un solo vehículo.
-                  </p>
-                </div>
-              </TabsContent>
 
               <TabsContent value="especificaciones">
                 <div className="bg-white rounded-lg p-6 border">
@@ -516,4 +498,3 @@ Saludos cordiales,
     </div>
   )
 }
-

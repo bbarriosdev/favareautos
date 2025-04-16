@@ -11,6 +11,7 @@ import {
   Shield,
   Award,
   Music,
+  Clock,
 } from "lucide-react"
 import { Button } from "./ui/button"
 import { Separator } from "./ui/separator"
@@ -24,15 +25,25 @@ export default function Footer() {
         {/* Top section with logo and social media */}
         <div className="flex flex-col md:flex-row justify-between items-center pb-12 border-b border-blue-800">
           <div className="bg-white p-3 rounded-lg mb-4 md:mb-0">
-            <img src="/favareautos/logo.jpeg" alt="FAVEREAUTOS Automotora" className="h-12 w-auto" />
+            <img src="/logo.jpeg" alt="FAVEREAUTOS Automotora" className="h-12 w-auto" />
           </div>
           <div className="flex flex-col items-center md:items-end">
             <div className="flex gap-3 mb-4">
-              <a href="#" className="bg-blue-800 hover:bg-blue-700 p-2 rounded-full transition-colors">
+              <a
+                href="https://www.facebook.com/automotorafavereautos"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-blue-800 hover:bg-blue-700 p-2 rounded-full transition-colors"
+              >
                 <Facebook size={20} />
                 <span className="sr-only">Facebook</span>
               </a>
-              <a href="#" className="bg-blue-800 hover:bg-blue-700 p-2 rounded-full transition-colors">
+              <a
+                href="https://www.instagram.com/_automotorafavereautos_"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-blue-800 hover:bg-blue-700 p-2 rounded-full transition-colors"
+              >
                 <Instagram size={20} />
                 <span className="sr-only">Instagram</span>
               </a>
@@ -68,8 +79,8 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-bold mb-4 text-yellow-400">Sobre Nosotros</h4>
             <p className="text-gray-300 mb-4">
-              Con más de 15 años de experiencia en el mercado automotriz, FAVEREAUTOS se ha consolidado como una de las
-              automotoras más confiables del país, ofreciendo vehículos de calidad y un servicio excepcional.
+              Tenemos el compromiso pleno de brindarte la mejor experiencia en la compra y venta de automóviles,
+              acompañándote en cada paso, desde la decisión hasta la transacción final.
             </p>
             <ul className="space-y-2">
               <li>
@@ -79,13 +90,13 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-yellow-400 flex items-center">
+                <a href="#about" className="text-gray-300 hover:text-yellow-400 flex items-center">
                   <ArrowRight className="h-4 w-4 mr-2" />
-                  Equipo Directivo
+                  Nuestros Valores
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-yellow-400 flex items-center">
+                <a href="#contact" className="text-gray-300 hover:text-yellow-400 flex items-center">
                   <ArrowRight className="h-4 w-4 mr-2" />
                   Trabaja con Nosotros
                 </a>
@@ -106,7 +117,7 @@ export default function Footer() {
                 <li>
                   <a href="#vehicles" className="text-gray-300 hover:text-yellow-400 flex items-center">
                     <ArrowRight className="h-4 w-4 mr-2" />
-                    Vehículos
+                    Nuestro Stock
                   </a>
                 </li>
                 <li>
@@ -127,6 +138,18 @@ export default function Footer() {
                   <a href="#" className="text-gray-300 hover:text-yellow-400 flex items-center">
                     <ArrowRight className="h-4 w-4 mr-2" />
                     Financiamiento
+                  </a>
+                </li>
+                <li>
+                  <a href="#contact" className="text-gray-300 hover:text-yellow-400 flex items-center">
+                    <ArrowRight className="h-4 w-4 mr-2" />
+                    Seguros
+                  </a>
+                </li>
+                <li>
+                  <a href="#contact" className="text-gray-300 hover:text-yellow-400 flex items-center">
+                    <ArrowRight className="h-4 w-4 mr-2" />
+                    Compramos tu auto
                   </a>
                 </li>
               </ul>
@@ -180,24 +203,40 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex">
                 <MapPin className="h-5 w-5 text-yellow-400 mr-3 flex-shrink-0" />
-                <span className="text-gray-300">
-                  Av. Principal #123
-                  <br />
-                  Ciudad, Estado 12345
-                </span>
+                <div>
+                  <p className="text-gray-300">
+                    Los Carrera 0460, Quilpué
+                    <br />
+                    Paradero 29 del Troncal Urbano
+                  </p>
+                  <p className="text-gray-300 mt-2">
+                    <span className="font-medium">Sucursal Belloto:</span>
+                    <br />
+                    Freire 848, Esquina María Arellano
+                    <br />
+                    Paradero 15, Quilpué
+                  </p>
+                </div>
               </li>
               <li className="flex">
                 <Phone className="h-5 w-5 text-yellow-400 mr-3 flex-shrink-0" />
                 <div>
-                  <p className="text-gray-300">Ventas: +1 (555) 123-4567</p>
-                  <p className="text-gray-300">Servicio: +1 (555) 765-4321</p>
+                  <p className="text-gray-300">Fono: 32 254 8983</p>
+                  <p className="text-gray-300">Celular: 56 981358847</p>
                 </div>
               </li>
               <li className="flex">
                 <Mail className="h-5 w-5 text-yellow-400 mr-3 flex-shrink-0" />
                 <div>
-                  <p className="text-gray-300">info@favereautos.com</p>
-                  <p className="text-gray-300">ventas@favereautos.com</p>
+                  <p className="text-gray-300">ventas@favereautos.cl</p>
+                  <p className="text-gray-300">contacto@favereautos.cl</p>
+                </div>
+              </li>
+              <li className="flex">
+                <Clock className="h-5 w-5 text-yellow-400 mr-3 flex-shrink-0" />
+                <div>
+                  <p className="text-gray-300">Lunes a viernes: 9:30 a 19:00 hrs</p>
+                  <p className="text-gray-300">Sábado: 10:30 a 13:30 hrs</p>
                 </div>
               </li>
               <li>
@@ -236,4 +275,3 @@ export default function Footer() {
     </footer>
   )
 }
-

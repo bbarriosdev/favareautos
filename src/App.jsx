@@ -9,6 +9,10 @@ import Footer from "./components/Footer"
 import VehiclesPage from "./components/VehiclesPage"
 import VehicleDetail from "./components/VehicleDetail"
 import Financing from "./components/Financing"
+import Insurance from "./components/Insurance"
+import SellYourCar from "./components/SellYourCar"
+import CommercialAdvisory from "./components/CommercialAdvisory"
+import WhatsAppButton from "./components/WhatsAppButton"
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState("home")
@@ -40,9 +44,13 @@ export default function App() {
           <VehicleDetail vehicle={selectedVehicle} navigateBack={() => navigateTo("vehicles")} />
         )}
         {currentPage === "financing" && <Financing />}
+        {currentPage === "insurance" && <Insurance />}
+        {currentPage === "sell-your-car" && <SellYourCar />}
+        {currentPage === "commercial-advisory" && <CommercialAdvisory />}
       </main>
       <Footer />
+      {/* Añadimos el botón de WhatsApp también aquí para asegurar que aparezca */}
+      <WhatsAppButton />
     </div>
   )
 }
-

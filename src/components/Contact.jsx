@@ -165,7 +165,7 @@ export default function Contact() {
                           <SelectItem value="compra">Información de compra</SelectItem>
                           <SelectItem value="venta">Vender mi vehículo</SelectItem>
                           <SelectItem value="financiamiento">Opciones de financiamiento</SelectItem>
-                          <SelectItem value="servicio">Servicio técnico</SelectItem>
+                          <SelectItem value="seguros">Cotización de seguros</SelectItem>
                           <SelectItem value="prueba">Agendar prueba de manejo</SelectItem>
                           <SelectItem value="otro">Otro</SelectItem>
                         </SelectContent>
@@ -231,8 +231,8 @@ export default function Contact() {
                       </div>
                       <div>
                         <p className="font-medium text-lg">Teléfono</p>
-                        <p className="text-gray-600 mb-1">Ventas: +1 (555) 123-4567</p>
-                        <p className="text-gray-600">Servicio: +1 (555) 765-4321</p>
+                        <p className="text-gray-600 mb-1">Fono: 32 254 8983</p>
+                        <p className="text-gray-600">Celular: 56 981358847</p>
                       </div>
                     </div>
 
@@ -242,8 +242,8 @@ export default function Contact() {
                       </div>
                       <div>
                         <p className="font-medium text-lg">Email</p>
-                        <p className="text-gray-600 mb-1">Ventas: ventas@favereautos.com</p>
-                        <p className="text-gray-600">Atención al cliente: info@favereautos.com</p>
+                        <p className="text-gray-600 mb-1">Ventas: ventas@favereautos.cl</p>
+                        <p className="text-gray-600">Atención al cliente: contacto@favereautos.cl</p>
                       </div>
                     </div>
 
@@ -253,13 +253,20 @@ export default function Contact() {
                       </div>
                       <div>
                         <p className="font-medium text-lg">Dirección</p>
-                        <p className="text-gray-600">
-                          Av. Principal #123
+                        <p className="text-gray-600 mb-2">
+                          Los Carrera 0460, Quilpué
                           <br />
-                          Ciudad, Estado 12345
+                          Paradero 29 del Troncal Urbano
+                        </p>
+                        <p className="text-gray-600">
+                          <span className="font-medium">Sucursal Belloto:</span>
+                          <br />
+                          Freire 848, Esquina María Arellano
+                          <br />
+                          Paradero 15, Quilpué
                         </p>
                         <a
-                          href="https://maps.google.com"
+                          href="https://maps.google.com/?q=Los+Carrera+0460+Quilpue"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-blue-600 hover:text-blue-800 text-sm font-medium mt-2 inline-block"
@@ -268,39 +275,16 @@ export default function Contact() {
                         </a>
                       </div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
 
-            <div
-              className={`transition-all duration-1000 delay-700 transform ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-              }`}
-            >
-              <Card className="rounded-xl overflow-hidden shadow-lg border-0">
-                <CardContent className="p-8">
-                  <div className="flex items-center mb-6">
-                    <div className="bg-blue-100 p-2 rounded-full mr-3">
-                      <Clock className="h-6 w-6 text-blue-600" />
-                    </div>
-                    <h3 className="text-xl font-bold">Horario de Atención</h3>
-                  </div>
-
-                  <div className="space-y-3">
-                    <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                      <span className="font-medium">Lunes - Viernes</span>
-                      <span className="bg-blue-50 text-blue-800 px-3 py-1 rounded-full text-sm">9:00 AM - 7:00 PM</span>
-                    </div>
-                    <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                      <span className="font-medium">Sábado</span>
-                      <span className="bg-blue-50 text-blue-800 px-3 py-1 rounded-full text-sm">
-                        10:00 AM - 5:00 PM
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center py-2">
-                      <span className="font-medium">Domingo</span>
-                      <span className="bg-red-50 text-red-800 px-3 py-1 rounded-full text-sm">Cerrado</span>
+                    <div className="flex items-start">
+                      <div className="bg-blue-100 p-3 rounded-full mr-4 mt-1">
+                        <Clock className="h-5 w-5 text-blue-600" />
+                      </div>
+                      <div>
+                        <p className="font-medium text-lg">Horario de Atención</p>
+                        <p className="text-gray-600 mb-1">Lunes a viernes: 9:30 a 19:00 hrs</p>
+                        <p className="text-gray-600">Sábado: 10:30 a 13:30 hrs</p>
+                      </div>
                     </div>
                   </div>
                 </CardContent>
@@ -316,14 +300,17 @@ export default function Contact() {
           }`}
         >
           <div className="bg-gray-200 h-80 rounded-xl overflow-hidden shadow-lg">
-            {/* Here you would typically embed a Google Map */}
-            <div className="w-full h-full flex items-center justify-center text-gray-500">
-              <div className="text-center">
-                <MapPin className="h-12 w-12 mx-auto mb-2 text-gray-400" />
-                <p>Mapa de ubicación</p>
-                <p className="text-sm text-gray-400">Aquí se mostraría el mapa de Google Maps</p>
-              </div>
-            </div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3345.5762636183!2d-71.44!3d-33.05!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9689dd2c2c9a5c7f%3A0x775b0d7c2a1c8c3a!2sLos%20Carrera%200460%2C%20Quilpu%C3%A9%2C%20Valpara%C3%ADso!5e0!3m2!1ses!2scl!4v1712539032!5m2!1ses!2scl"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Ubicación de FAVEREAUTOS"
+              className="w-full h-full"
+            ></iframe>
           </div>
         </div>
 
@@ -361,4 +348,3 @@ export default function Contact() {
     </section>
   )
 }
-
