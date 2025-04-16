@@ -61,7 +61,7 @@ export default function Financing() {
               </div>
               <div className="md:w-1/2">
                 <img
-                  src="/placeholder.svg?height=300&width=500&text=Financiamiento+Automotriz"
+                  src="/favareautos/placeholder.svg?height=300&width=500&text=Financiamiento+Automotriz"
                   alt="Financiamiento Automotriz"
                   className="rounded-lg shadow-lg"
                 />

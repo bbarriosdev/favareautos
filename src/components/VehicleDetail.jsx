@@ -29,10 +29,10 @@ export default function VehicleDetail({ vehicle, navigateBack }) {
   // Generar imágenes adicionales para la galería (en una app real vendrían del backend)
   const images = [
     vehicle.image,
-    `/placeholder.svg?height=400&width=600&text=Interior+${vehicle.name}`,
-    `/placeholder.svg?height=400&width=600&text=Lateral+${vehicle.name}`,
-    `/placeholder.svg?height=400&width=600&text=Trasera+${vehicle.name}`,
-    `/placeholder.svg?height=400&width=600&text=Motor+${vehicle.name}`,
+    `/favareautos/placeholder.svg?height=400&width=600&text=Interior+${vehicle.name}`,
+    `/favareautos/placeholder.svg?height=400&width=600&text=Lateral+${vehicle.name}`,
+    `/favareautos/placeholder.svg?height=400&width=600&text=Trasera+${vehicle.name}`,
+    `/favareautos/placeholder.svg?height=400&width=600&text=Motor+${vehicle.name}`,
   ]
 
   // Extraer marca y modelo del nombre del vehículo
@@ -136,7 +136,7 @@ Saludos cordiales,
                     }`}
                   >
                     <img
-                      src={img || "/placeholder.svg"}
+                      src={img || "/favareautos/placeholder.svg"}
                       alt={`Miniatura ${index + 1}`}
                       className="w-full h-full object-cover"
                     />

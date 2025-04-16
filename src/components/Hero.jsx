@@ -9,17 +9,17 @@ export default function Hero() {
     {
       title: "Encuentra tu vehículo ideal en FAVEREAUTOS",
       description: "Ofrecemos la mejor selección de vehículos nuevos y usados con financiamiento a tu medida",
-      image: "/porche.jpg?height=500&width=1920",
+      image: "/favareautos/porche.jpg?height=500&width=1920",
     },
     {
       title: "Invierte en calidad y confianza",
       description: "Todos nuestros vehículos pasan por rigurosas inspecciones para garantizar tu seguridad",
-      image: "/manejo.jpg?height=500&width=1920&text=Slide+2",
+      image: "/favareautos/manejo.jpg?height=500&width=1920&text=Slide+2",
     },
     {
       title: "Financiamiento a tu medida",
       description: "Opciones flexibles adaptadas a tus necesidades y posibilidades",
-      image: "/punte.jpg?height=500&width=1920&text=Slide+3",
+      image: "/favareautos/punte.jpg?height=500&width=1920&text=Slide+3",
     },
   ]
 
@@ -56,7 +56,7 @@ export default function Hero() {
         >
           <div className="absolute inset-0 z-0">
             <img
-              src={slide.image || "/placeholder.svg"}
+              src={slide.image || "/favareautos/placeholder.svg"}
               alt={`Slide ${index + 1}`}
               className="object-cover opacity-50 w-full h-full"
             />

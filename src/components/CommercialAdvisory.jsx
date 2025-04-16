@@ -175,7 +175,7 @@ export default function CommercialAdvisory() {
           >
             <div className="relative h-[200px] sm:h-[300px] rounded-lg overflow-hidden shadow-lg mb-8">
               <img
-                src="/placeholder.svg?height=300&width=600&text=Asesoría+Comercial"
+                src="/favareautos/placeholder.svg?height=300&width=600&text=Asesoría+Comercial"
                 alt="Asesoría Comercial"
                 className="object-cover w-full h-full"
               />

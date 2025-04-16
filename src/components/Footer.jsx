@@ -25,7 +25,7 @@ export default function Footer() {
         {/* Top section with logo and social media */}
         <div className="flex flex-col md:flex-row justify-between items-center pb-12 border-b border-blue-800">
           <div className="bg-white p-3 rounded-lg mb-4 md:mb-0">
-            <img src="/logo.jpeg" alt="FAVEREAUTOS Automotora" className="h-12 w-auto" />
+            <img src="/favareautos/logo.jpeg" alt="FAVEREAUTOS Automotora" className="h-12 w-auto" />
           </div>
           <div className="flex flex-col items-center md:items-end">
             <div className="flex gap-3 mb-4">

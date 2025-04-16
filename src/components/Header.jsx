@@ -85,7 +85,7 @@ export default function Header({ navigateTo, currentPage }) {
           <div className="container mx-auto px-4 py-4 flex items-center justify-between">
             <div className="flex items-center">
               <button onClick={() => navigateTo("home")} className="cursor-pointer">
-                <img src="/logo.jpeg" alt="FAVEREAUTOS Automotora" className="h-12 w-auto" />
+                <img src="/favareautos/logo.jpeg" alt="FAVEREAUTOS Automotora" className="h-12 w-auto" />
               </button>
             </div>
 
