@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react"
 import VehicleCard from "./VehicleCard"
 import { Button } from "./ui/button"
 import { ChevronRight } from "lucide-react"
-import axios from "axios" 
+
 
 export default function FeaturedVehicles({ navigateTo }) {
   const [isVisible, setIsVisible] = useState(false)
