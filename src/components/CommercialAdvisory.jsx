@@ -6,15 +6,28 @@ import {
   PiggyBank,
   BarChart4,
   GraduationCap,
-  ShieldCheck,
-  CheckCircle,
   ArrowRight,
+  User,
+  Phone,
+  Mail,
+  FileText,
+  X,
+  Check,
+  Briefcase,
+  Calendar,
+  DollarSign,
 } from "lucide-react"
 import { Button } from "./ui/button"
 import { Card, CardContent } from "./ui/card"
+import { Input } from "./ui/input"
+import { Textarea } from "./ui/textarea"
+import { Label } from "./ui/label"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select"
 
 export default function CommercialAdvisory() {
   const [isVisible, setIsVisible] = useState(false) // Iniciar como false para que la animación sea visible
+  const [showForm, setShowForm] = useState(false)
+  const [formStatus, setFormStatus] = useState(null) // null, 'sending', 'success'
   const sectionRef = useRef(null)
 
   useEffect(() => {
@@ -45,6 +58,21 @@ export default function CommercialAdvisory() {
       }
     }
   }, [])
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setFormStatus("sending")
+
+    // Simulate form submission
+    setTimeout(() => {
+      setFormStatus("success")
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setFormStatus(null)
+        e.target.reset()
+      }, 3000)
+    }, 1500)
+  }
 
   const advisoryAreas = [
     {
@@ -130,29 +158,6 @@ export default function CommercialAdvisory() {
               específicas de cada cliente.
             </p>
 
-            <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6 border border-gray-100 mb-6 overflow-x-auto">
-              <h4 className="font-bold text-lg mb-4 flex items-center">
-                <ShieldCheck className="h-5 w-5 mr-2 text-green-600 flex-shrink-0" />
-                <span className="text-sm sm:text-base">Nuestro enfoque</span>
-              </h4>
-              <ul className="space-y-3">
-                {[
-                  "Confianza",
-                  "Confidencialidad",
-                  "Excelencia profesional",
-                  "Personalización",
-                  "Resultados medibles",
-                ].map((value, index) => (
-                  <li key={index} className="flex items-start">
-                    <div className="bg-green-100 p-1 rounded-full mr-2 mt-0.5 flex-shrink-0">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                    </div>
-                    <span className="text-gray-700 text-sm sm:text-base">{value}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
             <div className="bg-blue-50 p-4 sm:p-6 rounded-lg overflow-x-auto">
               <h4 className="font-bold text-lg mb-4 text-blue-800 text-sm sm:text-base">
                 Beneficios de nuestra asesoría
@@ -175,7 +180,7 @@ export default function CommercialAdvisory() {
           >
             <div className="relative h-[200px] sm:h-[300px] rounded-lg overflow-hidden shadow-lg mb-8">
               <img
-                src="/favareautos/placeholder.svg?height=300&width=600&text=Asesoría+Comercial"
+                src="/placeholder.svg?height=300&width=600&text=Asesoría+Comercial"
                 alt="Asesoría Comercial"
                 className="object-cover w-full h-full"
               />
@@ -188,7 +193,10 @@ export default function CommercialAdvisory() {
                 ayudarte a alcanzar tus objetivos.
               </p>
               <div className="flex justify-center">
-                <Button className="bg-green-600 hover:bg-green-700 text-white px-4 sm:px-8 py-4 sm:py-6 text-sm sm:text-base">
+                <Button
+                  className="bg-green-600 hover:bg-green-700 text-white px-4 sm:px-8 py-4 sm:py-6 text-sm sm:text-base"
+                  onClick={() => setShowForm(true)}
+                >
                   Solicitar asesoría
                 </Button>
               </div>
@@ -239,7 +247,10 @@ export default function CommercialAdvisory() {
               objetivos económicos.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-medium px-4 sm:px-8 py-4 sm:py-6 text-sm sm:text-base">
+              <Button
+                className="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-medium px-4 sm:px-8 py-4 sm:py-6 text-sm sm:text-base"
+                onClick={() => setShowForm(true)}
+              >
                 Solicitar una consulta
               </Button>
               <Button
@@ -251,6 +262,186 @@ export default function CommercialAdvisory() {
             </div>
           </div>
         </div>
+
+        {/* Formulario de Asesoría Comercial */}
+        {showForm && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+            <div className="bg-white rounded-xl shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+              <div className="p-6">
+                <div className="flex justify-between items-center mb-6">
+                  <div className="flex items-center">
+                    <div className="bg-green-100 p-2 rounded-full mr-3">
+                      <Briefcase className="h-6 w-6 text-green-600" />
+                    </div>
+                    <h3 className="text-xl font-bold">Solicitud de Asesoría Comercial</h3>
+                  </div>
+                  <button onClick={() => setShowForm(false)} className="text-gray-500 hover:text-gray-700">
+                    <X className="h-5 w-5" />
+                  </button>
+                </div>
+
+                {formStatus === "success" ? (
+                  <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
+                    <div className="flex justify-center mb-4">
+                      <Check className="h-12 w-12 text-green-500" />
+                    </div>
+                    <h4 className="text-lg font-bold text-green-800 mb-2">¡Solicitud enviada con éxito!</h4>
+                    <p className="text-green-700 mb-4">
+                      Hemos recibido tu solicitud de asesoría comercial. Un asesor especializado se pondrá en contacto
+                      contigo en las próximas 24 horas para agendar tu consulta.
+                    </p>
+                    <Button
+                      variant="outline"
+                      className="border-green-500 text-green-600 hover:bg-green-50 mt-4"
+                      onClick={() => setShowForm(false)}
+                    >
+                      Cerrar
+                    </Button>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <p className="text-gray-600 mb-4">
+                      Complete el siguiente formulario y uno de nuestros asesores comerciales se pondrá en contacto
+                      contigo para brindarte una asesoría personalizada que te ayude a optimizar tus finanzas.
+                    </p>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="name">Nombre completo</Label>
+                        <div className="relative">
+                          <User
+                            className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                            size={18}
+                          />
+                          <Input id="name" placeholder="Tu nombre" className="pl-10" required />
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="phone">Teléfono</Label>
+                        <div className="relative">
+                          <Phone
+                            className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                            size={18}
+                          />
+                          <Input id="phone" placeholder="Tu teléfono" className="pl-10" required />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="email">Correo electrónico</Label>
+                      <div className="relative">
+                        <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+                        <Input id="email" type="email" placeholder="tu@email.com" className="pl-10" required />
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="advisory-type">Área de asesoría de interés</Label>
+                      <Select required>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Selecciona una opción" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="diagnostico">Diagnóstico financiero</SelectItem>
+                          <SelectItem value="planificacion">Planificación financiera</SelectItem>
+                          <SelectItem value="presupuesto">Gestión de presupuesto</SelectItem>
+                          <SelectItem value="inversiones">Asesoría en inversiones</SelectItem>
+                          <SelectItem value="educacion">Educación financiera</SelectItem>
+                          <SelectItem value="general">Asesoría general</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="client-type">Tipo de cliente</Label>
+                        <Select>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Selecciona una opción" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="personal">Personal</SelectItem>
+                            <SelectItem value="pyme">Pequeña empresa</SelectItem>
+                            <SelectItem value="mediana">Mediana empresa</SelectItem>
+                            <SelectItem value="otro">Otro</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="preferred-date">Fecha preferida para consulta</Label>
+                        <div className="relative">
+                          <Calendar
+                            className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                            size={18}
+                          />
+                          <Input id="preferred-date" type="date" className="pl-10" />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="financial-situation">Situación financiera actual (opcional)</Label>
+                      <div className="relative">
+                        <DollarSign
+                          className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                          size={18}
+                        />
+                        <Select>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Selecciona una opción" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="estable">Estable, buscando optimización</SelectItem>
+                            <SelectItem value="crecimiento">En crecimiento, buscando expandir</SelectItem>
+                            <SelectItem value="dificultades">Con algunas dificultades</SelectItem>
+                            <SelectItem value="crisis">En situación crítica</SelectItem>
+                            <SelectItem value="prefiero-no-decir">Prefiero no especificar</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="comments">Describe brevemente tu situación y objetivos</Label>
+                      <div className="relative">
+                        <FileText className="absolute left-3 top-3 text-gray-400" size={18} />
+                        <Textarea
+                          id="comments"
+                          placeholder="Cuéntanos sobre tu situación actual y qué esperas lograr con nuestra asesoría"
+                          className="pl-10 min-h-[100px]"
+                          required
+                        />
+                      </div>
+                    </div>
+
+                    <div className="flex justify-end gap-3 mt-6">
+                      <Button type="button" variant="outline" onClick={() => setShowForm(false)}>
+                        Cancelar
+                      </Button>
+                      <Button
+                        type="submit"
+                        className="bg-green-600 hover:bg-green-700"
+                        disabled={formStatus === "sending"}
+                      >
+                        {formStatus === "sending" ? (
+                          <>
+                            <div className="h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                            <span>Enviando...</span>
+                          </>
+                        ) : (
+                          <>
+                            Solicitar asesoría <ArrowRight className="ml-2 h-5 w-5" />
+                          </>
+                        )}
+                      </Button>
+                    </div>
+                  </form>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   )

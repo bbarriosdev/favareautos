@@ -1,18 +1,6 @@
 "use client"
 import { useState, useEffect, useRef } from "react"
-import {
-  Car,
-  CreditCard,
-  Check,
-  ArrowRight,
-  Award,
-  Shield,
-  Star,
-  Users,
-  TrendingUp,
-  ThumbsUp,
-  Trophy,
-} from "lucide-react"
+import { Car, CreditCard, Check, ArrowRight, Shield, Star, Users, TrendingUp, ThumbsUp } from "lucide-react"
 import { Card, CardContent } from "./ui/card"
 
 export default function About() {
@@ -134,13 +122,15 @@ export default function About() {
             >
               <div className="flex flex-col items-center mb-12">
                 <div className="inline-block bg-blue-100 text-blue-800 px-4 py-1 rounded-full text-sm font-medium mb-4">
-                  Soluciones Completas
+                  Compromiso de Excelencia
                 </div>
-                <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-blue-800">Nuestros Servicios</h2>
+                <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-blue-800">Soluciones Integrales</h2>
                 <div className="w-24 h-1 bg-yellow-400 mb-6"></div>
                 <p className="text-gray-700 text-center max-w-2xl mx-auto font-semibold">
-                  Ofrecemos soluciones completas para tu vehículo con la calidad y confianza que mereces. En FAVEREAUTOS
-                  encontrarás todo lo que necesitas en un solo lugar.
+                  En Favereautos tenemos un compromiso continuo con la excelencia y la satisfacción del cliente.
+                  Buscamos superar sus expectativas, construyendo relaciones sólidas y duraderas, al ir más allá de lo
+                  esperado, no solo generamos experiencias positivas, sino que también se fomenta la lealtad del cliente
+                  y crecimiento positivo.
                 </p>
               </div>
             </div>
@@ -226,20 +216,18 @@ export default function About() {
                 isAboutVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
               }`}
             >
-              <div className="flex justify-center mb-8">
-                <img src="/favareautos/logo.jpeg" alt="FAVEREAUTOS Automotora" className="h-24 w-auto" />
-              </div>
-
               <p className="text-gray-700 mb-6 text-lg">
-                Tenemos el compromiso pleno de brindarte la mejor experiencia en la compra y venta de automóviles,
-                acompañándote en cada paso, desde la decisión hasta la transacción final.
+                En Favereautos estamos comprometidos con la satisfacción del cliente proporcionando soluciones
+                financieras accesibles y eficientes para la adquisición de vehículos. Tenemos el compromiso pleno de
+                brindarte la mejor experiencia en la compra y venta de automóviles, acompañándote en cada paso, desde la
+                decisión hasta la transacción final.
               </p>
               <p className="text-gray-700 mb-6 text-lg">
                 Gracias a un esfuerzo constante por mejorar, estamos seguros de que tu sueño de adquirir un nuevo
                 automóvil estará en las mejores manos. Queremos ser tu aliado automotriz de por vida y estamos
                 sinceramente comprometidos con ese objetivo.
               </p>
-              <p className="text-gray-700 mb-4 text-lg">
+              <p className="text-gray-700 mb-6 text-lg">
                 Te invitamos a unirte a nosotros en la transformación del proceso de compra y venta de automóviles en
                 nuestra región. Tu opinión y experiencia son fundamentales para nuestro crecimiento y evolución.
               </p>
@@ -248,10 +236,6 @@ export default function About() {
                 <div className="flex items-center bg-blue-50 px-4 py-2 rounded-full">
                   <ThumbsUp className="h-5 w-5 text-blue-600 mr-2" />
                   <span className="text-blue-800 font-medium">¡Gracias por confiar en nosotros!</span>
-                </div>
-                <div className="flex items-center bg-yellow-50 px-4 py-2 rounded-full">
-                  <Trophy className="h-5 w-5 text-yellow-600 mr-2" />
-                  <span className="text-yellow-800 font-medium">Soluciones automotrices</span>
                 </div>
               </div>
             </div>
@@ -266,74 +250,6 @@ export default function About() {
                 alt="FAVEREAUTOS showroom"
                 className="object-cover w-full h-full"
               />
-            </div>
-          </div>
-
-          <div
-            className={`mt-16 transition-all duration-1000 delay-700 transform ${
-              isAboutVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            }`}
-          >
-            <div className="bg-white rounded-xl shadow-md p-8 border border-gray-100">
-              <h3 className="text-2xl font-bold text-center mb-8 text-blue-800">Nuestros Valores</h3>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-                {[
-                  {
-                    icon: <Shield className="h-10 w-10" />,
-                    title: "Orientación al cliente",
-                    description: "Nos enfocamos en entender y satisfacer las necesidades de cada cliente",
-                  },
-                  {
-                    icon: <Star className="h-10 w-10" />,
-                    title: "Responsabilidad",
-                    description: "Cumplimos con nuestros compromisos y asumimos las consecuencias de nuestras acciones",
-                  },
-                  {
-                    icon: <Users className="h-10 w-10" />,
-                    title: "Compromiso",
-                    description: "Nos dedicamos completamente a ofrecer el mejor servicio posible",
-                  },
-                  {
-                    icon: <Award className="h-10 w-10" />,
-                    title: "Excelencia",
-                    description: "Buscamos constantemente superar las expectativas y mejorar nuestros procesos",
-                  },
-                ].map((item, index) => (
-                  <div
-                    key={index}
-                    className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 text-center hover:-translate-y-1 border border-gray-50"
-                    style={{ transitionDelay: `${800 + index * 100}ms` }}
-                  >
-                    <div className="bg-blue-100 p-4 rounded-full inline-flex justify-center items-center mb-4 text-blue-600">
-                      {item.icon}
-                    </div>
-                    <h4 className="font-bold text-lg mb-2">{item.title}</h4>
-                    <p className="text-gray-600 text-sm">{item.description}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div className="bg-blue-50 p-6 rounded-lg">
-                  <h4 className="font-bold text-xl mb-4 text-blue-800">Nuestro Compromiso</h4>
-                  <p className="text-gray-700">
-                    En Favereautos tenemos un compromiso continuo con la excelencia y la satisfacción del cliente.
-                    Buscamos superar sus expectativas, construyendo relaciones sólidas y duraderas, al ir más allá de lo
-                    esperado, no solo generamos experiencias positivas, sino que también se fomenta la lealtad del
-                    cliente y crecimiento positivo.
-                  </p>
-                </div>
-
-                <div className="bg-yellow-50 p-6 rounded-lg">
-                  <h4 className="font-bold text-xl mb-4 text-yellow-800">Nuestra Visión</h4>
-                  <p className="text-gray-700">
-                    El objetivo de Favereautos es convertirse en la organización líder en ofrecer la mejor experiencia
-                    en el mercado automotriz, enfocados en la experiencia del cliente, la innovación y la mejora
-                    continua, trabajamos para alcanzar nuestro objetivo.
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         </div>

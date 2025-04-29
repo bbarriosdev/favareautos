@@ -1,8 +1,31 @@
 "use client"
-import { CreditCard, Check, AlertCircle, Landmark } from "lucide-react"
+import { CreditCard, Check, Landmark, ArrowRight, User, Phone, Mail, Calculator, FileText, X } from "lucide-react"
+import { useState } from "react"
 import { Button } from "./ui/button"
+import { Input } from "./ui/input"
+import { Textarea } from "./ui/textarea"
+import { Label } from "./ui/label"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select"
 
 export default function Financing() {
+  const [showForm, setShowForm] = useState(false)
+  const [formStatus, setFormStatus] = useState(null) // null, 'sending', 'success'
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setFormStatus("sending")
+
+    // Simulate form submission
+    setTimeout(() => {
+      setFormStatus("success")
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setFormStatus(null)
+        e.target.reset()
+      }, 3000)
+    }, 1500)
+  }
+
   return (
     <section className="py-20 bg-gradient-to-b from-blue-50 to-white relative overflow-hidden">
       {/* Decorative elements */}
@@ -24,48 +47,24 @@ export default function Financing() {
           </div>
         </div>
 
-        {/* Crédito Automotriz */}
+        {/* Características Generales */}
         <div className="mb-16">
           <div className="bg-white rounded-xl shadow-md p-8 border border-gray-100">
-            <div className="flex flex-col md:flex-row gap-8 items-center">
-              <div className="md:w-1/2">
-                <h3 className="text-2xl font-bold mb-4 text-blue-800">Crédito Automotriz</h3>
-                <p className="text-gray-700 mb-4">
-                  Ser pioneros en la oferta de crédito directo es una de las principales características de Favereautos.
-                  Ofrecer crédito directo significa que la empresa brinda financiamiento directamente a los clientes,
-                  sin la necesidad de intermediarios financieros adicionales.
-                </p>
-                <p className="text-gray-700 mb-4">
-                  Esta estrategia puede tener varios beneficios tanto para la empresa como para los clientes:
-                </p>
-                <ul className="list-disc pl-6 mb-4 space-y-2 text-gray-700">
-                  <li>
-                    <span className="font-medium">Acceso más fácil al financiamiento:</span> Eliminar intermediarios
-                    puede simplificar el proceso de obtención de crédito para los clientes. Al trabajar directamente con
-                    Favereautos, los clientes pueden experimentar un proceso de solicitud de crédito más rápido y
-                    directo.
-                  </li>
-                  <li>
-                    <span className="font-medium">Mayor flexibilidad en términos y condiciones:</span> Al ofrecer
-                    crédito directo, Favereautos tiene la capacidad de establecer sus propios términos y condiciones, lo
-                    que puede resultar en mayor flexibilidad para adaptarse a las necesidades financieras de sus
-                    clientes.
-                  </li>
-                  <li>
-                    <span className="font-medium">Control sobre la experiencia del cliente:</span> Al manejar el proceso
-                    de financiamiento internamente, tenemos un mayor control sobre la experiencia del cliente en
-                    general. Esto puede ayudar a garantizar un servicio consistente y de alta calidad en todas las
-                    etapas del proceso de compra.
-                  </li>
-                </ul>
-              </div>
-              <div className="md:w-1/2">
-                <img
-                  src="/favareautos/placeholder.svg?height=300&width=500&text=Financiamiento+Automotriz"
-                  alt="Financiamiento Automotriz"
-                  className="rounded-lg shadow-lg"
-                />
-              </div>
+            <h3 className="text-2xl font-bold mb-6 text-blue-800 text-center">Características Generales</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+              {[
+                "Financiamos autos nuevos o usados.",
+                "Para fines particulares o comerciales.",
+                "Hasta 48 meses de plazo.",
+                "Financiamiento especial para PYME.",
+                "Cuota fija en pesos.",
+                "Hasta 90 días la primera cuota",
+              ].map((item, index) => (
+                <div key={index} className="flex items-start">
+                  <Check className="h-5 w-5 text-blue-600 mr-2 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">{item}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -128,23 +127,6 @@ export default function Financing() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <h4 className="font-bold text-lg mb-4">Características</h4>
-                <div className="space-y-3 mb-8">
-                  {[
-                    "Financiamos autos nuevos o usados.",
-                    "Para fines particulares o comerciales.",
-                    "Hasta 48 meses de plazo.",
-                    "Financiamiento especial para PYME.",
-                    "Cuota fija en pesos.",
-                    "Hasta 90 días la primera cuota",
-                  ].map((item, index) => (
-                    <div key={index} className="flex items-start">
-                      <Check className="h-5 w-5 text-blue-600 mr-2 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">{item}</span>
-                    </div>
-                  ))}
-                </div>
-
                 <h4 className="font-bold text-lg mb-4">Condiciones para Crédito Directo</h4>
                 <div className="space-y-3">
                   {[
@@ -156,7 +138,7 @@ export default function Financing() {
                     "Cédula de Identidad vigente.",
                   ].map((item, index) => (
                     <div key={index} className="flex items-start">
-                      <AlertCircle className="h-5 w-5 text-amber-500 mr-2 flex-shrink-0 mt-0.5" />
+                      <Check className="h-5 w-5 text-blue-600 mr-2 flex-shrink-0 mt-0.5" />
                       <span className="text-gray-700">{item}</span>
                     </div>
                   ))}
@@ -164,40 +146,14 @@ export default function Financing() {
               </div>
 
               <div className="bg-blue-50 p-6 rounded-lg">
-                <h4 className="font-bold text-lg mb-4 text-blue-800">¿Por qué elegir nuestro Crédito Directo?</h4>
-                <ul className="space-y-4">
-                  <li className="flex items-start">
-                    <div className="bg-blue-100 p-1 rounded-full mr-2 mt-1">
-                      <Check className="h-4 w-4 text-blue-600" />
-                    </div>
-                    <span>Proceso de aprobación rápido y sin burocracia</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="bg-blue-100 p-1 rounded-full mr-2 mt-1">
-                      <Check className="h-4 w-4 text-blue-600" />
-                    </div>
-                    <span>Atención personalizada durante todo el proceso</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="bg-blue-100 p-1 rounded-full mr-2 mt-1">
-                      <Check className="h-4 w-4 text-blue-600" />
-                    </div>
-                    <span>Flexibilidad para adaptarnos a tu situación financiera</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="bg-blue-100 p-1 rounded-full mr-2 mt-1">
-                      <Check className="h-4 w-4 text-blue-600" />
-                    </div>
-                    <span>Sin costos ocultos ni comisiones adicionales</span>
-                  </li>
-                </ul>
-
-                <div className="mt-6">
-                  <p className="text-gray-700 mb-4 text-sm">
-                    Consulta por las opciones que tenemos para Crédito Directo, todos los casos serán evaluados.
-                  </p>
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700">Solicitar Crédito Directo</Button>
-                </div>
+                <h4 className="font-bold text-lg mb-4 text-blue-800">Solicita información</h4>
+                <p className="text-gray-700 mb-6">
+                  Para conocer más detalles sobre nuestras opciones de crédito directo, comunícate con nuestros asesores
+                  financieros.
+                </p>
+                <Button className="w-full bg-blue-600 hover:bg-blue-700" onClick={() => setShowForm(true)}>
+                  Solicitar Crédito Directo
+                </Button>
               </div>
             </div>
           </div>
@@ -256,7 +212,9 @@ export default function Financing() {
                 </div>
 
                 <div className="mt-4">
-                  <Button className="w-full bg-green-600 hover:bg-green-700">Consultar Opciones</Button>
+                  <Button className="w-full bg-green-600 hover:bg-green-700" onClick={() => setShowForm(true)}>
+                    Consultar Opciones
+                  </Button>
                 </div>
               </div>
             </div>
@@ -272,7 +230,10 @@ export default function Financing() {
               se adapte a tus necesidades y posibilidades.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-medium px-8 py-6">
+              <Button
+                className="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-medium px-8 py-6"
+                onClick={() => setShowForm(true)}
+              >
                 Solicitar Asesoría Financiera
               </Button>
               <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white/10 px-8 py-6">
@@ -281,6 +242,187 @@ export default function Financing() {
             </div>
           </div>
         </div>
+
+        {/* Formulario de Asesoría Financiera */}
+        {showForm && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+            <div className="bg-white rounded-xl shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+              <div className="p-6">
+                <div className="flex justify-between items-center mb-6">
+                  <div className="flex items-center">
+                    <div className="bg-blue-100 p-2 rounded-full mr-3">
+                      <Calculator className="h-6 w-6 text-blue-600" />
+                    </div>
+                    <h3 className="text-xl font-bold">Solicitud de Asesoría Financiera</h3>
+                  </div>
+                  <button onClick={() => setShowForm(false)} className="text-gray-500 hover:text-gray-700">
+                    <X className="h-5 w-5" />
+                  </button>
+                </div>
+
+                {formStatus === "success" ? (
+                  <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
+                    <div className="flex justify-center mb-4">
+                      <Check className="h-12 w-12 text-green-500" />
+                    </div>
+                    <h4 className="text-lg font-bold text-green-800 mb-2">¡Solicitud enviada con éxito!</h4>
+                    <p className="text-green-700 mb-4">
+                      Hemos recibido tu solicitud de asesoría financiera. Un asesor se pondrá en contacto contigo en las
+                      próximas 24 horas.
+                    </p>
+                    <Button
+                      variant="outline"
+                      className="border-green-500 text-green-600 hover:bg-green-50 mt-4"
+                      onClick={() => setShowForm(false)}
+                    >
+                      Cerrar
+                    </Button>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <p className="text-gray-600 mb-4">
+                      Complete el siguiente formulario y uno de nuestros asesores financieros se pondrá en contacto
+                      contigo para brindarte la mejor asesoría personalizada.
+                    </p>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="name">Nombre completo</Label>
+                        <div className="relative">
+                          <User
+                            className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                            size={18}
+                          />
+                          <Input id="name" placeholder="Tu nombre" className="pl-10" required />
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="phone">Teléfono</Label>
+                        <div className="relative">
+                          <Phone
+                            className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                            size={18}
+                          />
+                          <Input id="phone" placeholder="Tu teléfono" className="pl-10" required />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="email">Correo electrónico</Label>
+                      <div className="relative">
+                        <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+                        <Input id="email" type="email" placeholder="tu@email.com" className="pl-10" required />
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="financing-type">Tipo de financiamiento de interés</Label>
+                      <Select required>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Selecciona una opción" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="directo">Crédito Directo</SelectItem>
+                          <SelectItem value="convencional">Crédito Convencional</SelectItem>
+                          <SelectItem value="no-se">No estoy seguro, necesito asesoría</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="vehicle-price">Valor aproximado del vehículo</Label>
+                        <div className="relative">
+                          <CreditCard
+                            className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                            size={18}
+                          />
+                          <Input id="vehicle-price" placeholder="Ej: 10.000.000" className="pl-10" required />
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="pie">Pie disponible (opcional)</Label>
+                        <div className="relative">
+                          <CreditCard
+                            className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                            size={18}
+                          />
+                          <Input id="pie" placeholder="Ej: 5.000.000" className="pl-10" />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="plazo">Plazo deseado (meses)</Label>
+                        <Select>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Selecciona un plazo" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="12">12 meses</SelectItem>
+                            <SelectItem value="24">24 meses</SelectItem>
+                            <SelectItem value="36">36 meses</SelectItem>
+                            <SelectItem value="48">48 meses</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="income-type">Tipo de ingresos</Label>
+                        <Select>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Selecciona una opción" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="dependiente">Dependiente</SelectItem>
+                            <SelectItem value="independiente">Independiente</SelectItem>
+                            <SelectItem value="jubilado">Jubilado</SelectItem>
+                            <SelectItem value="otro">Otro</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="comments">Comentarios adicionales</Label>
+                      <div className="relative">
+                        <FileText className="absolute left-3 top-3 text-gray-400" size={18} />
+                        <Textarea
+                          id="comments"
+                          placeholder="Información adicional que consideres relevante para tu solicitud de financiamiento"
+                          className="pl-10 min-h-[100px]"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="flex justify-end gap-3 mt-6">
+                      <Button type="button" variant="outline" onClick={() => setShowForm(false)}>
+                        Cancelar
+                      </Button>
+                      <Button
+                        type="submit"
+                        className="bg-blue-600 hover:bg-blue-700"
+                        disabled={formStatus === "sending"}
+                      >
+                        {formStatus === "sending" ? (
+                          <>
+                            <div className="h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                            <span>Enviando...</span>
+                          </>
+                        ) : (
+                          <>
+                            Enviar solicitud <ArrowRight className="ml-2 h-5 w-5" />
+                          </>
+                        )}
+                      </Button>
+                    </div>
+                  </form>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   )
